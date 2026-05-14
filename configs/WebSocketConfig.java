@@ -15,7 +15,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
         // The endpoint where clients connect
         registry.addEndpoint("/chat")
-                .setAllowedOrigins(AppConstants.FRONT_END_URL)
+                .setAllowedOrigins("http://localhost:5173")
                 .withSockJS();
 
         // chat endpoint par websocket tcp connection establish hoga
@@ -25,6 +25,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void configureMessageBroker(MessageBrokerRegistry config) {
         // Prefix for messages sent FROM server TO client
         config.enableSimpleBroker("/topic");
+        config.setUserDestinationPrefix("/user");
 
         // Prefix for messages sent FROM client TO server
         config.setApplicationDestinationPrefixes("/app");

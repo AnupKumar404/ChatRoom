@@ -3,7 +3,6 @@ package com.chatapp.services;
 import com.chatapp.dto.JoinDetailDto;
 import com.chatapp.entities.Room;
 import com.chatapp.entities.User;
-import com.chatapp.enums.UserRole;
 import com.chatapp.exceptions.DuplicateDataException;
 import com.chatapp.exceptions.ResourceNotFoundException;
 import com.chatapp.repositories.RoomRepository;
@@ -12,7 +11,6 @@ import jakarta.transaction.Transactional;
 import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 @Service

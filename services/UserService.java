@@ -9,6 +9,7 @@ import com.chatapp.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class UserService {
@@ -40,5 +41,14 @@ public class UserService {
 
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new ResourceNotFoundException("Invalid Username"));
+    }
+
+    public List<User> fetchAllUsers(int page, int size){
+
+        List<User> users = userRepository.findAll();
+
+        int start = Math.max(0, users.size() - (page + 1) * size);
+        int end = Math.min(users.size(), start + size);
+        return users.subList(start, end);
     }
 }

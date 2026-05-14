@@ -1,8 +1,6 @@
 package com.chatapp.controllers;
 
-import com.chatapp.configs.AppConstants;
 import com.chatapp.dto.JoinDetailDto;
-import com.chatapp.entities.Message;
 import com.chatapp.exceptions.ResourceNotFoundException;
 import com.chatapp.services.RoomService;
 import org.apache.coyote.BadRequestException;
@@ -10,11 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/v1/rooms")
-@CrossOrigin(AppConstants.FRONT_END_URL)
 public class RoomController {
 
     private final RoomService roomService;
